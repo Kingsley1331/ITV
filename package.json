@@ -16,7 +16,6 @@
   },
   "homepage": "https://github.com/Kingsley1331/ITV#readme",
   "dependencies": {
-    "body-parser": "^1.15.2",
     "express": "^4.14.0"
   }
 }
