@@ -6,21 +6,17 @@
       makeRequest: function(url, method, accept, callback){
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open(method, url, true);
-        //xmlhttp.setRequestHeader("Accept", "text/html; charset=UTF-8");
         xmlhttp.setRequestHeader("Accept", accept);
         xmlhttp.send();
         xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                //console.log('responseText ', xmlhttp.responseText);
-                var response = xmlhttp.responseText;
-                response = JSON.parse(response);
-                //console.log('xmlhttp ', xmlhttp);
-                callback(response);
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+              var response = xmlhttp.responseText;
+              response = JSON.parse(response);
+              callback(response);
             }
         };
       }
   };
-
 
   var Controller = {
     init: function(callback){
@@ -29,9 +25,7 @@
     makeRequest: function(url, method, accept, callback){
       Model.makeRequest(url, method, accept, callback);
     }
-
   };
-
 
   var View = {
     init: function (response){
@@ -70,7 +64,6 @@
           var imageURL = production._links.image.href;
           var allEpisodesURL = production._links.allEpisodes.href;
 
-
           var showsTable = document.createElement('table');
           var row = document.createElement('tr');
           var nameTD = document.createElement('td');
@@ -86,7 +79,6 @@
           thumbnailTD.appendChild(thumbnail);
           thumbnail.src = imageURL;
           thumbnail.width = 200;
-
 
           thumbnail.onclick = (function(){
             return function(){
