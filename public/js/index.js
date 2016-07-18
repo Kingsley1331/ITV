@@ -19,7 +19,6 @@
             }
         };
       }
-
   };
 
 
@@ -63,8 +62,6 @@
         console.log('logSeries ', response);
         var display = document.getElementById('display');
         display.innerHTML = "";
-        //title.innerHTML = 'Selection - ' + response._embedded.productions[0].categories[0];
-
 
         var length = response._embedded.productions.length;
         for(var i = 0; i < length; i++){
